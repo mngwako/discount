@@ -1,2 +1,4 @@
+com/monthusi/discount/user/entity/UserType.class
 com/monthusi/discount/user/entity/User.class
 com/monthusi/discount/DiscountApplication.class
+com/monthusi/discount/sales/entity/DiscountType.class

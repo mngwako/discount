@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "users")
+@Table(name = "discount_type")
 @Data
 @EqualsAndHashCode(of = "id")
 public class DiscountType {
@@ -17,6 +17,6 @@ public class DiscountType {
     @Column(length = 128)
     private String id;
 
-    @Column(name = "name", nullable = false)
+    @Column(nullable = false)
     private String name;
 }

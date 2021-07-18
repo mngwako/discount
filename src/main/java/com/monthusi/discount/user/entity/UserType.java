@@ -7,12 +7,12 @@ import lombok.EqualsAndHashCode;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user_type")
 @Data
 @EqualsAndHashCode(of = "id")
 public class UserType {
     @Id
-    @Column(length = 128)
+    @Column(name = "id", length = 128)
     private String id;
 
     @Column(name = "name", nullable = false)

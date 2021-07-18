@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @Column(length = 128)
+    @Column(name = "id", length = 128)
     private String id;
 
     @Column(name = "full_name", nullable = false)
@@ -21,4 +21,8 @@ public class User {
     @OneToOne
     @JoinColumn(name = "user_type", nullable = false)
     private UserType userType;
+
+//    https://gabrielpulga.medium.com/a-beginners-guide-to-unit-testing-crud-endpoints-of-a-spring-boot-java-web-service-api-8ae342c9cbcd
+
+
 }
