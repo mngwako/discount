@@ -16,8 +16,4 @@ public class UserType {
 
     @Column(name = "name", nullable = false)
     private String name;
-
-//    @OneToOne
-//    @JoinColumn(name = "discount_type", nullable = false)
-//    private DiscountType discountType;
 }

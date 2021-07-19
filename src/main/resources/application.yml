@@ -22,5 +22,5 @@ spring:
     show-sql: true
   liquibase:
     change-log: classpath:/db.liquibase/db.changelog.xml
-    drop-first: false
+    drop-first: true
     enabled: true

@@ -27,6 +27,9 @@ public class SalesTransaction {
     @Column(name = "discount_type", nullable = false)
     private String discountType;
 
+    @Column(name = "sale_category", nullable = false)
+    private String saleCategory;
+
     @Column(name = "discount_amount", nullable = false)
     private double discountAmount;
 

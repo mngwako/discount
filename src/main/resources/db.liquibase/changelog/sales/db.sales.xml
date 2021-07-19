@@ -10,6 +10,7 @@
             <column name="user" type="VARCHAR(128)" />
             <column name="bill" type="DOUBLE"/>
             <column name="discount_type" type="VARCHAR(255)" />
+            <column name="sale_category" type="VARCHAR(255)" />
             <column name="discount_amount" type="DOUBLE"/>
             <column name="amount_paid" type="DOUBLE"/>
             <column name="date" type="TIMESTAMP"/>

@@ -2,6 +2,7 @@ package com.monthusi.discount.sales.service.implementation;
 
 import com.monthusi.discount.sales.entity.SalesTransaction;
 import com.monthusi.discount.sales.models.DiscountPercentageEnum;
+import com.monthusi.discount.sales.models.SaleCategoryEnum;
 import com.monthusi.discount.sales.repository.ISalesTransactionRepository;
 import com.monthusi.discount.sales.service.ISalesTransactionService;
 import com.monthusi.discount.user.entity.User;
@@ -27,9 +28,11 @@ public class SalesTransactionServiceImpl implements ISalesTransactionService {
         User user = iUserService.getUserById(transaction.getUser().getId());
 
         String discountType = getDiscountTypeByUser(user);
-        double discountAmount = getDiscount(transaction.getBill(), discountType);
+        double discountAmount = getDiscount(transaction.getBill(), discountType, transaction.getSaleCategory());
+        transaction.setUser(user);
         transaction.setDiscountType(discountType);
         transaction.setDiscountAmount(discountAmount);
+        transaction.setAmountPaid(transaction.getBill()-discountAmount);
         transaction.setDate(new Date());
 
         return iSalesTransactionRepository.save(transaction);
@@ -61,22 +64,36 @@ public class SalesTransactionServiceImpl implements ISalesTransactionService {
         return discountType;
     }
 
-    private double getDiscount(double bill, String discountType){
-        double percentageDiscount = 0.0;
-        double billDiscount = 0.0;
-        double totalDiscount = 0.0;
-
-
+    private double getDiscount(double bill, String discountType, String saleCategory){
+        double percentageDiscount;
+        double billDiscount;
+        double totalDiscount;
+        
         switch (discountType){
-            case "Testing 1":
-            percentageDiscount = 0.0;
-            break;
-            case "Testing 2":
-            percentageDiscount = 0.0;
-            break;
+            case "EMPLOYEE_DISCOUNT":
+                percentageDiscount = bill * (DiscountPercentageEnum.EMPLOYEE_DISCOUNT.getDiscount()/100);
+                break;
+            case "AFFILIATE_DISCOUNT":
+                percentageDiscount = bill * (DiscountPercentageEnum.AFFILIATE_DISCOUNT.getDiscount()/100);
+                break;
+            case "LONG_TERM_CUSTOMER_DISCOUNT":
+                percentageDiscount = bill * (DiscountPercentageEnum.LONG_TERM_CUSTOMER_DISCOUNT.getDiscount()/100);
+                break;
             default:
             percentageDiscount = 0.0;
             break;
+        }
+
+        if(bill >= 100){
+            billDiscount = ((int)(bill / 100)) * 5;
+        } else {
+            billDiscount = 0.0;
+        }
+
+        if (saleCategory.equals(SaleCategoryEnum.GROCERY.getName())) {
+            totalDiscount = billDiscount;
+        } else {
+            totalDiscount = billDiscount + percentageDiscount;
         }
 
         return totalDiscount;
