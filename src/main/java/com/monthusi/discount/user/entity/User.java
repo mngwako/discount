@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "users")
@@ -23,12 +24,11 @@ public class User {
     @JoinColumn(name = "user_type", nullable = false)
     private UserType userType;
 
+    @Column(name = "registration_date")
+    private Date registrationDate;
+
     @PrePersist
     public void onCreate() {
         setId(Generators.timeBasedGenerator().generate().toString());
     }
-
-//    https://gabrielpulga.medium.com/a-beginners-guide-to-unit-testing-crud-endpoints-of-a-spring-boot-java-web-service-api-8ae342c9cbcd
-
-
 }

@@ -1,0 +1,46 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="data-1" author="Ngwako">
+        <insert tableName="user_type">
+            <column name="id">d825abc8-493e-4c34-83ce-d10330b32748</column>
+            <column name="name">Employee</column>
+        </insert>
+        <insert tableName="user_type">
+            <column name="id">21847cba-96dd-43f3-9e4d-0511ad8c1a0c</column>
+            <column name="name">Affiliate</column>
+        </insert>
+        <insert tableName="user_type">
+            <column name="id">5ce111ad-afba-4077-ae72-5da9d625251b</column>
+            <column name="name">Customer</column>
+        </insert>
+    </changeSet>
+
+    <changeSet id="data-2" author="Ngwako">
+        <insert tableName="users">
+            <column name="id">009ee47a-6ddb-4e57-b299-b3cb21fe89c7</column>
+            <column name="full_name">Employee Smith</column>
+            <column name="user_type">d825abc8-493e-4c34-83ce-d10330b32748</column>
+            <column name="registration_date">2021-04-17 09:25:32</column>
+        </insert>
+        <insert tableName="users">
+            <column name="id">02217383-4610-4de9-bbe9-2729c2c89b3b</column>
+            <column name="full_name">Affiliate Smith</column>
+            <column name="user_type">21847cba-96dd-43f3-9e4d-0511ad8c1a0c</column>
+            <column name="registration_date">2015-05-10 07:25:00</column>
+        </insert>
+        <insert tableName="users">
+            <column name="id">35baa36d-27b8-4cb9-b802-4a33bd6ad013</column>
+            <column name="Full_name">Customer One</column>
+            <column name="user_type">5ce111ad-afba-4077-ae72-5da9d625251b</column>
+            <column name="registration_date">2017-04-17 09:25:32</column>
+        </insert>
+        <insert tableName="users">
+            <column name="id">9226f308-111b-4182-b363-2d0f3758bc9f</column>
+            <column name="full_name">Customer Two</column>
+            <column name="user_type">5ce111ad-afba-4077-ae72-5da9d625251b</column>
+            <column name="registration_date">2021-04-17 10:50:22</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -1,4 +1,13 @@
-/home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/sales/entity/DiscountType.java
+/home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/user/api/UserApi.java
+/home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/user/service/implementation/UserServiceImpl.java
 /home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/user/entity/User.java
+/home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/sales/repository/ITransactionRepository.java
 /home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/DiscountApplication.java
+/home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/sales/service/implementation/TransactionServiceImpl.java
+/home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/sales/api/SalesApi.java
+/home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/sales/entity/SalesTransaction.java
+/home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/sales/models/DiscountPercentageEnum.java
+/home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/user/repository/UserRepository.java
+/home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/sales/service/ITransactionService.java
+/home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/user/service/IUserService.java
 /home/monthusiotsile/Documents/Personal/discount/src/main/java/com/monthusi/discount/user/entity/UserType.java

@@ -22,4 +22,10 @@ public class UserServiceImpl implements IUserService {
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
+
+    @Override
+    public User getUserById(String id) {
+        return userRepository.findUserById(id);
+    }
+
 }

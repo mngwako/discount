@@ -8,7 +8,6 @@
                 <constraints primaryKey="true" primaryKeyName="user_type_pkey"/>
             </column>
             <column name="name" type="VARCHAR(255)" />
-            <column name="discount_type" type="VARCHAR(128)" />
         </createTable>
         <createTable tableName="users">
             <column name="id" type="VARCHAR(128)">
@@ -16,6 +15,7 @@
             </column>
             <column name="full_name" type="VARCHAR(255)" />
             <column name="user_type" type="VARCHAR(128)" />
+            <column name="registration_date" type="TIMESTAMP"/>
         </createTable>
     </changeSet>
     <changeSet id="user-2" author="Ngwako">
@@ -29,16 +29,9 @@
                 referencedTableName="user_type"
                 referencedColumnNames="id"/>
     </changeSet>
-    <changeSet id="user-4" author="Ngwako">
-        <addForeignKeyConstraint
-                baseTableName="user_type"
-                baseColumnNames="discount_type" constraintName="user_type_discount_type_FK"
-                referencedTableName="discount_type"
-                referencedColumnNames="id"/>
-    </changeSet>
     <changeSet id="user-5" author="Ngwako">
         <addForeignKeyConstraint
-                baseTableName="transaction"
+                baseTableName="sales_transaction"
                 baseColumnNames="user" constraintName="transaction_user_FK"
                 referencedTableName="users"
                 referencedColumnNames="id"/>
