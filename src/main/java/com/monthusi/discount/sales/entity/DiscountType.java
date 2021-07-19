@@ -19,4 +19,7 @@ public class DiscountType {
 
     @Column(nullable = false)
     private String name;
+
+    @Column(name = "discount_percentage", nullable = false)
+    private double discountPercentage;
 }

@@ -1,4 +1,7 @@
 com/monthusi/discount/user/entity/UserType.class
-com/monthusi/discount/user/entity/User.class
-com/monthusi/discount/DiscountApplication.class
+com/monthusi/discount/sales/entity/Transaction.class
 com/monthusi/discount/sales/entity/DiscountType.class
+com/monthusi/discount/user/entity/User.class
+TransactionServiceImpl.class
+com/monthusi/discount/DiscountApplication.class
+ITransactionService.class

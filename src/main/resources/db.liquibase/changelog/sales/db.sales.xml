@@ -8,10 +8,23 @@
                 <constraints primaryKey="true" primaryKeyName="discount_type_pkey"/>
             </column>
             <column name="name" type="VARCHAR(255)" />
+            <column name="discount_percentage" type="DOUBLE"/>
         </createTable>
     </changeSet>
     <changeSet id="sales-2" author="Ngwako">
         <addUniqueConstraint columnNames="name"
                              tableName="discount_type"/>
+    </changeSet>
+    <changeSet id="sales-3" author="Ngwako">
+        <createTable tableName="transaction">
+            <column name="id" type="VARCHAR(128)">
+                <constraints primaryKey="true" primaryKeyName="discount_type_pkey"/>
+            </column>
+            <column name="user" type="VARCHAR(128)" />
+            <column name="bill" type="DOUBLE"/>
+            <column name="discount_amount" type="DOUBLE"/>
+            <column name="amount_paid" type="DOUBLE"/>
+            <column name="date" type="TIMESTAMP"/>
+        </createTable>
     </changeSet>
 </databaseChangeLog>

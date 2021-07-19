@@ -12,7 +12,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(of = "id")
 public class UserType {
     @Id
-    @Column(name = "id", length = 128)
+    @Column(length = 128)
     private String id;
 
     @Column(name = "name", nullable = false)

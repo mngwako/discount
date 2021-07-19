@@ -25,15 +25,22 @@
     <changeSet id="user-3" author="Ngwako">
         <addForeignKeyConstraint
                 baseTableName="users"
-                baseColumnNames="user_type" constraintName="users_user_type-FK"
+                baseColumnNames="user_type" constraintName="users_user_type_FK"
                 referencedTableName="user_type"
                 referencedColumnNames="id"/>
     </changeSet>
     <changeSet id="user-4" author="Ngwako">
         <addForeignKeyConstraint
                 baseTableName="user_type"
-                baseColumnNames="discount_type" constraintName="user_type_discount_type-FK"
+                baseColumnNames="discount_type" constraintName="user_type_discount_type_FK"
                 referencedTableName="discount_type"
+                referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="user-5" author="Ngwako">
+        <addForeignKeyConstraint
+                baseTableName="transaction"
+                baseColumnNames="user" constraintName="transaction_user_FK"
+                referencedTableName="users"
                 referencedColumnNames="id"/>
     </changeSet>
 
