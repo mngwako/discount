@@ -32,6 +32,7 @@ Tests Coverage Report:
 The application already has preliminary data needed to use discount APIs, these are:
 
 * http://localhost:8080/api/sales/transaction/create
+- body
 ```json
 {
     "user": {"customerNumber": "0000004"},
