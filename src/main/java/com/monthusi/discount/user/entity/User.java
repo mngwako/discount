@@ -20,6 +20,9 @@ public class User {
     @Column(name = "full_name", nullable = false)
     private String fullName;
 
+    @Column(name = "customer_number", nullable = false)
+    private String customerNumber;
+
     @OneToOne
     @JoinColumn(name = "user_type", nullable = false)
     private UserType userType;

@@ -15,12 +15,13 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SalesTransactionServiceBeanTest {
@@ -43,7 +44,7 @@ public class SalesTransactionServiceBeanTest {
 
         SalesTransaction salesTransaction = buildSalesTransaction(200, service, userType, registrationDate);
 
-        when(iUserService.getUserById(anyString())).thenReturn(this.buildeUser(userType, registrationDate));
+        when(iUserService.getUserByCustomerNumber(anyString())).thenReturn(this.buildUser(userType, registrationDate));
 
         when(iSalesTransactionRepository.save(ArgumentMatchers.any(SalesTransaction.class))).thenReturn(salesTransaction);
 
@@ -63,7 +64,7 @@ public class SalesTransactionServiceBeanTest {
         SalesTransaction salesTransaction = buildSalesTransaction(bill, service, userType, registrationDate);
         double expectedDiscount = bill * (30.0/100.0);
 
-        when(iUserService.getUserById(anyString())).thenReturn(this.buildeUser(userType, registrationDate));
+        when(iUserService.getUserByCustomerNumber(anyString())).thenReturn(this.buildUser(userType, registrationDate));
 
         when(iSalesTransactionRepository.save(ArgumentMatchers.any(SalesTransaction.class))).thenReturn(salesTransaction);
 
@@ -84,7 +85,7 @@ public class SalesTransactionServiceBeanTest {
         SalesTransaction salesTransaction = buildSalesTransaction(bill, service, userType, registrationDate);
         double expectedDiscount = bill * (10.0/100.0);
 
-        when(iUserService.getUserById(anyString())).thenReturn(this.buildeUser(userType, registrationDate));
+        when(iUserService.getUserByCustomerNumber(anyString())).thenReturn(this.buildUser(userType, registrationDate));
 
         when(iSalesTransactionRepository.save(ArgumentMatchers.any(SalesTransaction.class))).thenReturn(salesTransaction);
 
@@ -105,7 +106,7 @@ public class SalesTransactionServiceBeanTest {
         SalesTransaction salesTransaction = buildSalesTransaction(bill, service, userType, registrationDate);
         double expectedDiscount = bill * (5.0/100.0);
 
-        when(iUserService.getUserById(anyString())).thenReturn(this.buildeUser(userType, registrationDate));
+        when(iUserService.getUserByCustomerNumber(anyString())).thenReturn(this.buildUser(userType, registrationDate));
 
         when(iSalesTransactionRepository.save(ArgumentMatchers.any(SalesTransaction.class))).thenReturn(salesTransaction);
 
@@ -126,7 +127,7 @@ public class SalesTransactionServiceBeanTest {
         SalesTransaction salesTransaction = buildSalesTransaction(bill, service, userType, registrationDate);
         double expectedDiscount = 0;
 
-        when(iUserService.getUserById(anyString())).thenReturn(this.buildeUser(userType, registrationDate));
+        when(iUserService.getUserByCustomerNumber(anyString())).thenReturn(this.buildUser(userType, registrationDate));
 
         when(iSalesTransactionRepository.save(ArgumentMatchers.any(SalesTransaction.class))).thenReturn(salesTransaction);
 
@@ -148,7 +149,7 @@ public class SalesTransactionServiceBeanTest {
         SalesTransaction salesTransaction = buildSalesTransaction(bill, service, userType, registrationDate);
         double expectedDiscount = ((int)(bill / 100)) * 5;
 
-        when(iUserService.getUserById(anyString())).thenReturn(this.buildeUser(userType, registrationDate));
+        when(iUserService.getUserByCustomerNumber(anyString())).thenReturn(this.buildUser(userType, registrationDate));
 
         when(iSalesTransactionRepository.save(ArgumentMatchers.any(SalesTransaction.class))).thenReturn(salesTransaction);
 
@@ -170,7 +171,7 @@ public class SalesTransactionServiceBeanTest {
         SalesTransaction salesTransaction = buildSalesTransaction(bill, service, userType, registrationDate);
         double expectedDiscount = ((int)(bill / 100)) * 5;
 
-        when(iUserService.getUserById(anyString())).thenReturn(this.buildeUser(userType, registrationDate));
+        when(iUserService.getUserByCustomerNumber(anyString())).thenReturn(this.buildUser(userType, registrationDate));
 
         when(iSalesTransactionRepository.save(ArgumentMatchers.any(SalesTransaction.class))).thenReturn(salesTransaction);
 
@@ -180,9 +181,21 @@ public class SalesTransactionServiceBeanTest {
         verify(iSalesTransactionRepository).save(salesTransaction);
     }
 
-    private User buildeUser(String userType, Date registrationDate){
+    @Test
+    public void shouldGetAllTransactions(){
+        final List<SalesTransaction> expectedTransactions = generateListOfTransactions();
+
+        when(iSalesTransactionRepository.findAll()).thenReturn(expectedTransactions);
+        final List<SalesTransaction> actualTransactions = salesTransactionService.getAllSalesTransactions();
+
+        verify(iSalesTransactionRepository, times(1)).findAll();
+        assertEquals(expectedTransactions, actualTransactions);
+    }
+
+    private User buildUser(String userType, Date registrationDate){
         User user = new User();
         user.setId("1");
+        user.setCustomerNumber("0000001");
         user.setFullName("Test User");
         user.setUserType(buildUserType(userType));
         user.setRegistrationDate(registrationDate);
@@ -199,10 +212,21 @@ public class SalesTransactionServiceBeanTest {
     private SalesTransaction buildSalesTransaction(double bill, String saleCategory, String userType, Date registrationDate){
         SalesTransaction salesTransaction = new SalesTransaction();
         salesTransaction.setId("1");
-        salesTransaction.setUser(buildeUser(userType, registrationDate));
+        salesTransaction.setUser(buildUser(userType, registrationDate));
         salesTransaction.setBill(bill);
         salesTransaction.setSaleCategory(saleCategory);
         return salesTransaction;
+    }
+
+    private List<SalesTransaction> generateListOfTransactions(){
+        List<SalesTransaction> transactions = new ArrayList<>();
+
+        SalesTransaction transaction1 = buildSalesTransaction(150, "Grocery", "Customer", formatDate("09/22/2006"));
+        SalesTransaction transaction2 = buildSalesTransaction(150, "Furniture", "Employee", formatDate("09/22/2021"));
+        transactions.add(transaction1);
+        transactions.add(transaction2);
+
+        return transactions;
     }
 
     private Date formatDate(String date){

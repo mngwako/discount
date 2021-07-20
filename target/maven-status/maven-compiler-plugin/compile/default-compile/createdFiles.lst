@@ -1,10 +1,12 @@
+com/monthusi/discount/user/repository/IUserRepository.class
 com/monthusi/discount/user/entity/UserType.class
 com/monthusi/discount/sales/service/implementation/SalesTransactionServiceImpl.class
 com/monthusi/discount/user/api/UserApi.class
-com/monthusi/discount/user/repository/UserRepository.class
+com/monthusi/discount/user/models/UserTypeEnum.class
 com/monthusi/discount/sales/api/SalesApi.class
 com/monthusi/discount/user/entity/User.class
 com/monthusi/discount/sales/repository/ISalesTransactionRepository.class
+com/monthusi/discount/sales/models/SaleCategoryEnum.class
 com/monthusi/discount/DiscountApplication.class
 com/monthusi/discount/sales/models/DiscountPercentageEnum.class
 com/monthusi/discount/sales/entity/SalesTransaction.class

@@ -1,17 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.monthusi.discount.DiscountApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.175 s <<< FAILURE! - in com.monthusi.discount.DiscountApplicationTests
-contextLoads  Time elapsed: 0.002 s  <<< ERROR!
-java.lang.IllegalStateException: Failed to load ApplicationContext
-Caused by: org.yaml.snakeyaml.scanner.ScannerException: 
-while scanning a simple key
- in 'reader', line 28, column 5:
-        spring.jpa.hibernate.naming.phys ... 
-        ^
-could not find expected ':'
- in 'reader', line 29, column 5:
-        spring.jpa.hibernate.naming.impl ... 
-        ^
-
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.609 s - in com.monthusi.discount.DiscountApplicationTests

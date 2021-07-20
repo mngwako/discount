@@ -14,6 +14,7 @@
                 <constraints primaryKey="true" primaryKeyName="users_pkey"/>
             </column>
             <column name="full_name" type="VARCHAR(255)" />
+            <column name="customer_number" type="VARCHAR(255)" />
             <column name="user_type" type="VARCHAR(128)" />
             <column name="registration_date" type="TIMESTAMP"/>
         </createTable>
@@ -21,6 +22,8 @@
     <changeSet id="user-2" author="Ngwako">
         <addUniqueConstraint columnNames="name"
                              tableName="user_type"/>
+        <addUniqueConstraint columnNames="customer_number"
+                             tableName="users"/>
     </changeSet>
     <changeSet id="user-3" author="Ngwako">
         <addForeignKeyConstraint

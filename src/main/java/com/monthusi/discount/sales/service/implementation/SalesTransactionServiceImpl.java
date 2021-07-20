@@ -25,7 +25,7 @@ public class SalesTransactionServiceImpl implements ISalesTransactionService {
 
     @Override
     public SalesTransaction createSalesTransaction(SalesTransaction transaction){
-        User user = iUserService.getUserById(transaction.getUser().getId());
+        User user = iUserService.getUserByCustomerNumber(transaction.getUser().getCustomerNumber());
 
         String discountType = getDiscountTypeByUser(user);
         double discountAmount = getDiscount(transaction.getBill(), discountType, transaction.getSaleCategory());
