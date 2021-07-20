@@ -24,3 +24,6 @@ To run application unit tests:
 ```shell
 mvn clean test
 ```
+
+Tests Coverage Report:
+* After running test, the test report will be in “target/site/jacoco/index.html” with can be opened using a browse
