@@ -19,3 +19,8 @@ To run application:
 ```shell
 mvn spring-boot:run
 ```
+To run application unit tests:
+
+```shell
+mvn clean test
+```
