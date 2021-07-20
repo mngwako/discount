@@ -41,6 +41,23 @@ The application already has preliminary data needed to use discount APIs, these 
     "userType":{"id":"d825abc8-493e-4c34-83ce-d10330b32748"}
 }
 ```
+UserType list already seeded:
+```json
+[
+    {
+    "id":"d825abc8-493e-4c34-83ce-d10330b32748",
+    "name":"Employee"
+    },
+    {
+    "id":"21847cba-96dd-43f3-9e4d-0511ad8c1a0c",
+    "name":"Affiliate"
+    },
+    {
+    "id":"5ce111ad-afba-4077-ae72-5da9d625251b",
+    "name":"Customer"
+    }
+]
+```
 
 * http://localhost:8080/api/user/list/all
 
