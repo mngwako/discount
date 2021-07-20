@@ -31,6 +31,19 @@ Tests Coverage Report:
 ## Using APIs locally
 The application already has preliminary data needed to use discount APIs, these are:
 
+* http://localhost:8080/api/user/create (Already seeded 4 users)
+-body
+```json
+{
+    "fullName": "Monthusiotsile Ngwako",
+    "customerNumber": "123456",
+    "userType":{"id":"d825abc8-493e-4c34-83ce-d10330b32748"}
+}
+```
+
+* http://localhost:8080/api/user/list/all
+Return list of all users in the database
+
 * http://localhost:8080/api/sales/transaction/create
 - body
 ```json
@@ -40,3 +53,5 @@ The application already has preliminary data needed to use discount APIs, these 
     "saleCategory":"Services"
 }
 ```
+http://localhost:8080/api/sales/transaction/list/all
+Return list of all sales transactions in the database
