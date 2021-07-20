@@ -32,6 +32,7 @@ Tests Coverage Report:
 The application already has preliminary data needed to use discount APIs, these are:
 
 * http://localhost:8080/api/user/create (Already seeded 4 users)
+
 -body
 ```json
 {
@@ -42,6 +43,7 @@ The application already has preliminary data needed to use discount APIs, these 
 ```
 
 * http://localhost:8080/api/user/list/all
+
 Return list of all users in the database
 
 * http://localhost:8080/api/sales/transaction/create
@@ -54,4 +56,5 @@ Return list of all users in the database
 }
 ```
 http://localhost:8080/api/sales/transaction/list/all
+
 Return list of all sales transactions in the database
