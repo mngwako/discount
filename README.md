@@ -55,6 +55,6 @@ Return list of all users in the database
     "saleCategory":"Services"
 }
 ```
-http://localhost:8080/api/sales/transaction/list/all
+* http://localhost:8080/api/sales/transaction/list/all
 
 Return list of all sales transactions in the database
