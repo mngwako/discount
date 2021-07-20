@@ -31,7 +31,7 @@ Tests Coverage Report:
 ## Using APIs locally
 The application already has preliminary data needed to use discount APIs, these are:
 
-* http://localhost:8080/api/user/create (Already seeded 4 users)
+1) http://localhost:8080/api/user/create (Already seeded 4 users)
 
 -body
 ```json
@@ -59,11 +59,11 @@ UserType list already seeded:
 ]
 ```
 
-* http://localhost:8080/api/user/list/all
+2) http://localhost:8080/api/user/list/all
 
 Return list of all users in the database
 
-* http://localhost:8080/api/sales/transaction/create
+3) http://localhost:8080/api/sales/transaction/create
 - body
 ```json
 {
@@ -72,6 +72,13 @@ Return list of all users in the database
     "saleCategory":"Services"
 }
 ```
-* http://localhost:8080/api/sales/transaction/list/all
+SaleCategory strings with enums:
+* "Grocery"
+* "Services"
+* "Gardening"
+* "Furniture"
+
+
+4) http://localhost:8080/api/sales/transaction/list/all
 
 Return list of all sales transactions in the database
