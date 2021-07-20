@@ -27,3 +27,15 @@ mvn clean test
 
 Tests Coverage Report:
 * After running test, the test report will be in “target/site/jacoco/index.html” with can be opened using a browse
+
+## Using APIs locally
+The application already has preliminary data needed to use discount APIs, these are:
+
+* http://localhost:8080/api/sales/transaction/create
+```json
+{
+    "user": {"customerNumber": "0000004"},
+    "bill":290,
+    "saleCategory":"Services"
+}
+```
